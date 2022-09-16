@@ -6,20 +6,28 @@
 > - **CREATE** ImageFolder
 > - **CREATE** LargerImage
 > - **CREATE** SmallerImageList
+> - **CREATE** Button
 
 
 ### <u>PROPERTIES OF OBJECTS:</u>
 > - **ImageFolder**
->   - Has multiple images. 
+>   - Has multiple images.
 
 > - **LargerImage**
 >   - Displayed center of the page
 >   - Larger than the rest of the images displayed.
 >   - Only one image can be this size
+>   - has alt text
 
 > - **SmallerImageList**
 >   - Smaller than the *LargerImage*
 >   - Muiltiple images can be this size being displayed.
+>   - has alt text
+>   - Has an onClick event
+
+> - **Button**
+>   - Can say Lighten
+>   - Can say Darken
 
 
 
@@ -28,73 +36,42 @@
 >   - When called, it will return an array of image file names | array
 
 > - **LargerImage**
->   - Stuff
+>   - Can let *Button* know if it has the dark filter or light filter 
 
 > - **SmallerImageList**
->   - Stuff
+>   - Returns the array index when clicked. 
+
+
+> - **Button**
+>   - Can add a dark filter to *LargerImage*
+>   - Can remove dark filter to *LargerImage*
+>   - Will let know whuch state is in | Dark or light
 
 ### <u>FUNCTIONS:</u>
 
 ```
-FUNCTION CheckWaterLevel
-IF waterLevel >= 1 cup 
-    RTURN true
-ELSE 
-    RETURN false
+FUNCTION addImagesToPage
 
-FUNCTION CheckWaterTemp
-IF waterTem == 195
-    RETURN true
-ELSE 
-    RETURN false
+FOR eachImage in *ImageFolder*
+    DISPLAY eachImage on page
 
-Function iskCupInserted
-IF K-Cup IN CoffeMaker
-    RETURN true
-ELSE 
-    RETURN false
-
-FUNCTION isMugUnderDispensor
-IF Mug unser dispensor
-    RETURN true
-ELSE 
-    RETURN false
-
-FUNCTION BrewCoffee
-IF [CheckWaterLevel,CheckWaterTemp,iskCupInserted,isMugUnderDispensor] = true
-    BrewCoffee
 ```
 ### <u>LOGIC:</u>
 ```
+IF Button contains Darken
+    ADD dark class to Large Image
 
-ELSE
-A.IF CheckWaterLevel = false
-    Person detach water reservoir from CoffeeMaker with one hand,
-    Turn on sink with other,
-    Fill water reservoir untill full.
-    Replace reservoir into CoffeeMaker
-    RETURN true
-    BrewCoffee
+    ELSE
+        Button dispays Lighten 
+        remove dark class to LargeImage
+        Add Liten class to LargeImage
 
-B. IF CheckWaterTemp = false
-    Use CoffeeMaker water heater untill water temp is = 195
-    RETURN true
-    BrewCoffee
 
-C. IF iskCupInserted = false
-    Person check to K-Cup container,
-        IF K-Cup container has >= 1 K-Cup
-            Person one hand grab K-Cup and insert into CoffeeMachine K-Cup insert
-            RETURN true
-            BrewCoffee
-        ELSE K-Cup container = 0
-            END PROGRAM
+IF LargeImage class contains Darken
+    add dark overlay to LargeImage
 
-D. IF isMugUnderDispensor = false
-    Person open MugCabinet
-        IF MugCabinet >=1 mug
-            Place Mug under CoffeeMaker Dispensor
-                RETURN true
-                BrewCoffee
-        ElSE
-            END PROGRAM
+    ELSE
+        add lighten class to LargeImage
+```
+
+
