@@ -22,6 +22,7 @@ const altText = [
                 ]
 
 /* Looping through images */
+// Used i iteration beucase of refrensing multiple arrays in the loop.
 for (let i=0 ; i < 5; i++){
 
     const newImage = document.createElement('img');

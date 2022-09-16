@@ -23,6 +23,7 @@
 >   - Smaller than the *LargerImage*
 >   - Muiltiple images can be this size being displayed.
 >   - has alt text
+>   - Has an onClick event
 
 > - **Button**
 >   - Can say Lighten
@@ -35,10 +36,11 @@
 >   - When called, it will return an array of image file names | array
 
 > - **LargerImage**
->   - Stuff
+>   - Can let *Button* know if it has the dark filter or light filter 
 
 > - **SmallerImageList**
->   - Stuff
+>   - Returns the array index when clicked. 
+
 
 > - **Button**
 >   - Can add a dark filter to *LargerImage*
@@ -48,12 +50,28 @@
 ### <u>FUNCTIONS:</u>
 
 ```
-FUNCTION CheckWaterLevel
+FUNCTION addImagesToPage
 
+FOR eachImage in *ImageFolder*
+    DISPLAY eachImage on page
 
 ```
 ### <u>LOGIC:</u>
 ```
+IF Button contains Darken
+    ADD dark class to Large Image
 
+    ELSE
+        Button dispays Lighten 
+        remove dark class to LargeImage
+        Add Liten class to LargeImage
+
+
+IF LargeImage class contains Darken
+    add dark overlay to LargeImage
+
+    ELSE
+        add lighten class to LargeImage
+```
 
 
